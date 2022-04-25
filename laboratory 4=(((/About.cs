@@ -30,5 +30,8 @@ namespace laboratory_4 {
             savingCheckBox.ChangeMessageBox(IsAgain);
         }
 
+        private void About_Load(object sender, EventArgs e) {
+
+        }
     }
 }

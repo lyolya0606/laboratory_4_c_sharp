@@ -12,7 +12,6 @@ using System.IO;
 
 namespace laboratory_4 {
     public partial class MainForm : Form {
-        private const int NUM_OF_COLUMNS = 6;
         public MainForm() {
             InitializeComponent();
             GreetingWorker();
@@ -30,8 +29,7 @@ namespace laboratory_4 {
             adapter.Fill(dataTable);
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             btn.UseColumnTextForButtonValue = true;
-            dataGridView.DataSource = dataTable;
-           
+            dataGridView.DataSource = dataTable;           
         }
 
 
@@ -47,8 +45,17 @@ namespace laboratory_4 {
             about.ShowDialog();            
         }
 
-        private void AddButtonClick(object sender, EventArgs e) {
+        private List<string> GetKeys() {
+            List<string> keys = new List<string>();
+            for (int i = 0; i < dataGridView.Rows.Count; i++) {               
+                keys.Add(dataGridView[i, 0].Value.ToString());                
+            }
+            return keys;
+        }
+
+        private void AddButtonClick(object sender, EventArgs e) {            
             AddAndEditForm addAndEditForm = new AddAndEditForm(true);
+            addAndEditForm.SetKeys(GetKeys());
             addAndEditForm.ShowDialog();
             InitializeConnection();
         }
@@ -99,7 +106,7 @@ namespace laboratory_4 {
             SaveFileDialog saveFileDialog = new SaveFileDialog() {
                 InitialDirectory = @"C:\Users\lyolya\source\repos\laboratory 4=(((\laboratory 4=(((\bin\Debug"
             };
-            saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt;";
             saveFileDialog.FilterIndex = 2;
             saveFileDialog.RestoreDirectory = true;
 

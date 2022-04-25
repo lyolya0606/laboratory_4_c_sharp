@@ -12,6 +12,7 @@ using System.Data.SQLite;
 namespace laboratory_4 {
     public partial class AddAndEditForm : Form {
         private bool isAdd;
+        private List<string> keys;
 
         public AddAndEditForm(bool isAdd, string number = null, string name = null, string surname = null, string balance = null, string currency = null, decimal percent = 0) {
             InitializeComponent();
@@ -41,6 +42,11 @@ namespace laboratory_4 {
                 return;
             }
 
+            if (!CheckKey()) {
+                MessageBox.Show("The field 'number' must be unique", "Warning!");
+                return;
+            }
+
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=BankAccounts.db");
 
             if (isAdd) {                
@@ -64,5 +70,17 @@ namespace laboratory_4 {
             Close();
         }
 
+        public void SetKeys(List<string> keys) {
+            this.keys = keys;
+        }
+
+        private bool CheckKey() {
+            foreach (string key in keys) {
+                if (key == textBoxNumber.Text) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

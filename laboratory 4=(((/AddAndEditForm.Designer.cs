@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAndEditForm));
             this.labelNumber = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             // 
             // textBoxName
             // 
+            this.textBoxName.BackColor = System.Drawing.Color.Azure;
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxName.Location = new System.Drawing.Point(120, 81);
             this.textBoxName.Name = "textBoxName";
@@ -69,6 +71,7 @@
             // 
             // textBoxSurname
             // 
+            this.textBoxSurname.BackColor = System.Drawing.Color.Azure;
             this.textBoxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxSurname.Location = new System.Drawing.Point(120, 137);
             this.textBoxSurname.Name = "textBoxSurname";
@@ -87,6 +90,7 @@
             // 
             // textBoxBalance
             // 
+            this.textBoxBalance.BackColor = System.Drawing.Color.Azure;
             this.textBoxBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxBalance.Location = new System.Drawing.Point(120, 194);
             this.textBoxBalance.Name = "textBoxBalance";
@@ -125,16 +129,19 @@
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(227, 362);
+            this.buttonOk.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOk.Location = new System.Drawing.Point(216, 354);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonOk.Size = new System.Drawing.Size(86, 31);
             this.buttonOk.TabIndex = 12;
             this.buttonOk.Text = "OK";
-            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.UseVisualStyleBackColor = false;
             this.buttonOk.Click += new System.EventHandler(this.ButtonOkClick);
             // 
             // comboBoxCurrency
             // 
+            this.comboBoxCurrency.BackColor = System.Drawing.Color.Azure;
             this.comboBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxCurrency.FormattingEnabled = true;
             this.comboBoxCurrency.Items.AddRange(new object[] {
@@ -151,6 +158,7 @@
             // 
             // textBoxNumber
             // 
+            this.textBoxNumber.BackColor = System.Drawing.Color.Azure;
             this.textBoxNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxNumber.Location = new System.Drawing.Point(120, 26);
             this.textBoxNumber.Name = "textBoxNumber";
@@ -159,6 +167,7 @@
             // 
             // numericUpDownPercent
             // 
+            this.numericUpDownPercent.BackColor = System.Drawing.Color.Azure;
             this.numericUpDownPercent.DecimalPlaces = 1;
             this.numericUpDownPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numericUpDownPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -191,6 +200,7 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.labelNumber);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAndEditForm";
             this.Text = "Editing";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPercent)).EndInit();
