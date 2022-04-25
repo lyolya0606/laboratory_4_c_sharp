@@ -21,7 +21,8 @@ namespace laboratory_4 {
                 textBoxSurname.Text = surname;
                 textBoxBalance.Text = balance;
                 comboBoxCurrency.Text = currency;
-                numericUpDownPercent.Value = percent;                
+                numericUpDownPercent.Value = percent;
+                textBoxNumber.ReadOnly = true;
             }
             this.isAdd = isAdd;
         }
@@ -44,6 +45,7 @@ namespace laboratory_4 {
                 sqLiteCommand.ExecuteNonQuery();
                 sqLiteConnection.Close();
             } else {
+                
                 sqLiteConnection.Open();
                 string addAccount = $"update BankAccounts set name = '{name}', surname = '{surname}', balance = {balance}, " +
                     $"currency = '{currency}', percent = '{percent}' where number = {number};";
