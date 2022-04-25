@@ -29,9 +29,5 @@ namespace laboratory_4 {
             SavingCheckBox savingCheckBox = new SavingCheckBox();
             savingCheckBox.ChangeMessageBox(IsAgain);
         }
-
-        private void About_Load(object sender, EventArgs e) {
-
-        }
     }
 }

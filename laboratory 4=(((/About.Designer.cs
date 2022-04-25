@@ -68,7 +68,7 @@ namespace laboratory_4 {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(415, 180);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -80,7 +80,6 @@ namespace laboratory_4 {
             this.Name = "About";
             this.Text = "About";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClosingAbout);
-            this.Load += new System.EventHandler(this.About_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

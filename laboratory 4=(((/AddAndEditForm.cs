@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 
 namespace laboratory_4 {
     public partial class AddAndEditForm : Form {
-        private bool isAdd;
+        private readonly bool isAdd;
         private List<string> keys;
 
         public AddAndEditForm(bool isAdd, string number = null, string name = null, string surname = null, string balance = null, string currency = null, decimal percent = 0) {
@@ -42,14 +36,14 @@ namespace laboratory_4 {
                 return;
             }
 
-            if (!CheckKey()) {
-                MessageBox.Show("The field 'number' must be unique", "Warning!");
-                return;
-            }
-
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=BankAccounts.db");
 
-            if (isAdd) {                
+            if (isAdd) {
+                if (!CheckKey()) {
+                    MessageBox.Show("The field 'number' must be unique", "Warning!");
+                    return;
+                }
+
                 sqLiteConnection.Open();
                 string addAccount = "insert into BankAccounts (number, name, surname, balance, currency, percent)" +
                                     $"values ({number}, '{name}', '{surname}', '{balance}', '{currency}', '{percent}');";

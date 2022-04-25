@@ -142,6 +142,7 @@
             // comboBoxCurrency
             // 
             this.comboBoxCurrency.BackColor = System.Drawing.Color.Azure;
+            this.comboBoxCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxCurrency.FormattingEnabled = true;
             this.comboBoxCurrency.Items.AddRange(new object[] {
@@ -185,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(326, 399);
             this.Controls.Add(this.numericUpDownPercent);
             this.Controls.Add(this.comboBoxCurrency);
@@ -201,6 +202,8 @@
             this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.labelNumber);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddAndEditForm";
             this.Text = "Editing";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPercent)).EndInit();
