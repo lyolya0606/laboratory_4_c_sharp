@@ -28,12 +28,19 @@ namespace laboratory_4 {
         }
 
         private void ButtonOkClick(object sender, EventArgs e) {
+            Check check = new Check();            
             string number = textBoxNumber.Text;
             string name = textBoxName.Text;
             string surname = textBoxSurname.Text;
             string balance = textBoxBalance.Text;
             string currency = comboBoxCurrency.Text;
             decimal percent = numericUpDownPercent.Value;
+
+            if (number == "" || name == "" || surname == "" || balance == "" || currency == "" || !check.CheckAll(number, name, surname, balance)) {
+                MessageBox.Show("You entered bad data", "Warning!");
+                return;
+            }
+
             SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=BankAccounts.db");
 
             if (isAdd) {                
@@ -56,5 +63,6 @@ namespace laboratory_4 {
             }
             Close();
         }
+
     }
 }
