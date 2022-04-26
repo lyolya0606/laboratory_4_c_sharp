@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 namespace laboratory_4 {
     public partial class AddAndEditForm : Form {
@@ -35,31 +34,18 @@ namespace laboratory_4 {
                 MessageBox.Show("You entered bad data", "Warning!");
                 return;
             }
-
-            SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=BankAccounts.db");
-
+            DatabaseWork databaseWork = new DatabaseWork();
+            
+           
             if (isAdd) {
                 if (!CheckKey()) {
                     MessageBox.Show("The field 'number' must be unique", "Warning!");
                     return;
                 }
-
-                sqLiteConnection.Open();
-                string addAccount = "insert into BankAccounts (number, name, surname, balance, currency, percent)" +
-                                    $"values ({number}, '{name}', '{surname}', '{balance}', '{currency}', '{percent}');";
-            
-                SQLiteCommand sqLiteCommand = new SQLiteCommand(addAccount, sqLiteConnection);
-                sqLiteCommand.ExecuteNonQuery();
-                sqLiteConnection.Close();
+                databaseWork.Add(number, name, surname, balance, currency, percent, "DefaultConnection");
+               
             } else {
-                
-                sqLiteConnection.Open();
-                string addAccount = $"update BankAccounts set name = '{name}', surname = '{surname}', balance = {balance}, " +
-                    $"currency = '{currency}', percent = '{percent}' where number = {number};";
-
-                SQLiteCommand sqLiteCommand = new SQLiteCommand(addAccount, sqLiteConnection);
-                sqLiteCommand.ExecuteNonQuery();
-                sqLiteConnection.Close();
+                databaseWork.Edit(number, name, surname, balance, currency, percent, "DefaultConnection");
             }
             Close();
         }
@@ -75,6 +61,6 @@ namespace laboratory_4 {
                 }
             }
             return true;
-        }
+        }       
     }
 }

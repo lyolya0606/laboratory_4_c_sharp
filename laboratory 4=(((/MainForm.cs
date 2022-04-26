@@ -65,17 +65,11 @@ namespace laboratory_4 {
 
             int i = dataGridView.CurrentCell.RowIndex;
             string numberForDelete = dataGridView[0, i].Value.ToString();
-
-
-            SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=BankAccounts.db");
-            sqLiteConnection.Open();
-            string addAccount = $"delete from BankAccounts where number = '{numberForDelete}'";
-
-            SQLiteCommand sqLiteCommand = new SQLiteCommand(addAccount, sqLiteConnection);
-            sqLiteCommand.ExecuteNonQuery();
-            sqLiteConnection.Close();
+            DatabaseWork databaseWork = new DatabaseWork();
+            databaseWork.Delete(numberForDelete, "DefaultConnection");
             InitializeConnection();
         }
+
 
         private void DataGridViewCellClick(object sender, DataGridViewCellEventArgs e) {
             deleteButton.Enabled = true;
