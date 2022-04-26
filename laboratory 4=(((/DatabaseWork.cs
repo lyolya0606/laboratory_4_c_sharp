@@ -51,25 +51,12 @@ namespace laboratory_4 {
             string stmt = "select* from BankAccounts";
             int count;
             SQLiteConnection sqLiteConnection = new SQLiteConnection(ConfigurationManager.ConnectionStrings[conn].ConnectionString);
-            //SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=TestBankAccounts.db");
             SQLiteCommand cmd = new SQLiteCommand(stmt, sqLiteConnection);
 
             DataTable dataTable = new DataTable();
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
             adapter.Fill(dataTable);
             count = dataTable.Rows.Count;
-
-            //using (SQLiteConnection thisConnection = new SQLiteConnection("data source=TestBankAccounts.db")) {
-            //    using (SQLiteCommand cmdCount = new SQLiteCommand(stmt, thisConnection)) {
-            //        thisConnection.Open();
-            //        count = (int)cmdCount.ExecuteScalar();
-            //    }
-            //}
-            //SQLiteConnection sqLiteConnection = new SQLiteConnection("data source=TestBankAccounts.db");
-            //sqLiteConnection.Open();
-            //SQLiteCommand command = new SQLiteCommand(stmt, sqLiteConnection);
-            //count = (int)command.ExecuteScalar();
-            //sqLiteConnection.Close();
             return count;           
         }
     }
