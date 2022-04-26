@@ -31,7 +31,8 @@ namespace laboratory_4 {
             decimal percent = numericUpDownPercent.Value;
 
             if (number == "" || name == "" || surname == "" || balance == "" || currency == "" || !check.CheckAll(number, name, surname, balance)) {
-                MessageBox.Show("You entered bad data", "Warning!");
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show("You entered bad data", "Warning!", buttons, MessageBoxIcon.Error);
                 return;
             }
             DatabaseWork databaseWork = new DatabaseWork();
@@ -39,7 +40,8 @@ namespace laboratory_4 {
            
             if (isAdd) {
                 if (!CheckKey()) {
-                    MessageBox.Show("The field 'number' must be unique", "Warning!");
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show("The field 'number' must be unique", "Warning!", buttons, MessageBoxIcon.Error);
                     return;
                 }
                 databaseWork.Add(number, name, surname, balance, currency, percent, "DefaultConnection");

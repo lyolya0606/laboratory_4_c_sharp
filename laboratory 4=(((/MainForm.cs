@@ -31,7 +31,7 @@ namespace laboratory_4 {
 
         private void AskingForClosing(object sender, FormClosingEventArgs e) {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit", buttons);
+            DialogResult result = MessageBox.Show("Do you really want to exit?", "Exit", buttons, MessageBoxIcon.Exclamation);
             e.Cancel = result != DialogResult.Yes;
         }
 
@@ -58,7 +58,7 @@ namespace laboratory_4 {
 
         private void DeleteButtonClick(object sender, EventArgs e) {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Do you really want to delete highlighted line?", "Delete", buttons);
+            DialogResult result = MessageBox.Show("Do you really want to delete highlighted line?", "Delete", buttons, MessageBoxIcon.Exclamation);
             if (result == DialogResult.No) {
                 return;
             }
@@ -99,10 +99,12 @@ namespace laboratory_4 {
             saveFileDialog.Filter = "txt files (*.txt)|*.txt;";
             saveFileDialog.FilterIndex = 2;
             saveFileDialog.RestoreDirectory = true;
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                 if (saveFileDialog.FileName == @"C:\Users\lyolya\source\repos\laboratory 4=(((\laboratory 4=(((\bin\Debug\CheckBox.txt") {
-                    MessageBox.Show("This file cannot be opened!", "Warning!");
+        
+                    MessageBox.Show("This file cannot be opened!", "Warning!", buttons, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -119,10 +121,11 @@ namespace laboratory_4 {
                     }
 
                 }
-                MessageBox.Show("File was successfully saved!", "Saving!");
+               
+                MessageBox.Show("File was successfully saved!", "Saving!", buttons, MessageBoxIcon.Information);
             }
             else {
-                MessageBox.Show("File was not saved!", "Warning!");
+                MessageBox.Show("File was not saved!", "Warning!", buttons, MessageBoxIcon.Error);
             }
         }
     }
